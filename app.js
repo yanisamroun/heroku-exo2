@@ -11,14 +11,21 @@ const sequelize = new Sequelize(
 // Un modèle, c'est un objet JS qui est en lien avec une table de BDD
 const Message = sequelize.define('Message',{
     title: {
-        type: DataTypes.STRING, // VARCHAR(255)
+        type: DataTypes.STRING(150), // VARCHAR(255)
         allowNull: false // NOT NULL 
     },
     body: {
         type: DataTypes.TEXT, // TEXT
         allowNull: true // NULLABLE
     }
+}, {
+    // Nommer la table en minuscule et au singulier
+    tableName: 'message',
+    // createdAt -> created_at
+    underscored: true
 })
+
+
 
 
 console.log('Checking Database connection...');
