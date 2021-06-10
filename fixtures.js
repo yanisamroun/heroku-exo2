@@ -1,6 +1,16 @@
 const sequelize = require("./models");
+const faker = require('faker');
 
 console.log('Checking Database connection...');
+
+function generateMessages() {
+    for(let i=1; i<=50;i++) {
+        sequelize.models.Message.create({
+            title: faker.random.words(7),
+            body: faker.lorem.paragraphs(2)
+        })
+    }
+}
 
 sequelize.authenticate()
 // Si il arrive à s'authentifier à la BDD
@@ -10,18 +20,7 @@ sequelize.authenticate()
     // Synchroniser les modèles avec la BDD
     sequelize.sync({force: true})
     .then(()=> {
-
-        // Insérer des données
-        // Pour avoir un modèle, on va passer par l'instance
-        // de sequelize
-        sequelize.models.Message.create({
-            title: "Un message secret",
-            body: "Je m'appelle Bond. James Bond."
-        })
-
-        sequelize.models.Message.create({
-            title: "Mon message qui tue"
-        })
+        generateMessages();
 
     });
 })
