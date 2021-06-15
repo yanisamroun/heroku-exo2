@@ -13,6 +13,10 @@ const PORT = 5000;
 
 console.log('Checking Database connection...');
 
+
+
+
+
 app.get('/messages', (req, res) => {
     sequelize.models.Message.findAll()
     .then(myMessages => {

@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
     // Dans le cas de mariadb
     // 'mariadb://notes_user:1poney2poneys3poneys@localhost/notes'
    // Dans le cas de mysql
-   'mysql://notes_user:1poney2poneys3poneys@localhost/notes'
+   'mysql://ldlc_user:root1234@localhost/ldlc'
 )
 
 // Un modèle, c'est un objet JS qui est en lien avec une table de BDD
