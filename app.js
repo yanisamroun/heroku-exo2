@@ -13,12 +13,15 @@ const PORT = 5000;
 
 console.log('Checking Database connection...');
 
-app.get('/', (req, res) => {
+app.get('/trucs/:id', (req, res) => {
+    const id= req.params.id;
+})
+
+app.get('/articles', (req, res) => {
     sequelize.models.Message.findAll()
     .then(myMessages => {
         res.send(myMessages);
     })
-    
 })
 
 sequelize.authenticate()
