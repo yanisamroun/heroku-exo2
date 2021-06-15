@@ -13,11 +13,7 @@ const PORT = 5000;
 
 console.log('Checking Database connection...');
 
-app.get('/trucs/:id', (req, res) => {
-    const id= req.params.id;
-})
-
-app.get('/articles', (req, res) => {
+app.get('/messages', (req, res) => {
     sequelize.models.Message.findAll()
     .then(myMessages => {
         res.send(myMessages);
@@ -32,16 +28,6 @@ sequelize.authenticate()
     app.listen(PORT, () => {
         console.log(`Web server running at localhost:${PORT}`);
     });
-
-
-
-    // // SELECT * FROM message WHERE id=3
-    // sequelize.models.Message.findByPk(3)
-    // .then(myMessage => {
-    //     // toJSON enlève le superflu donné par Sequelize
-    //     console.log(myMessage.toJSON());
-    // })
-
 })
 // Si il n'arrive pas à se co à la BDD
 .catch((err) => {
